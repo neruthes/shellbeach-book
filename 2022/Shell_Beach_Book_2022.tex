@@ -1,0 +1,279 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper,twosided,11pt]{book}
+
+\usepackage[a4paper,hmargin=50mm,tmargin=70mm,bmargin=50mm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{calc}
+\usepackage{amsmath,xltxtra,xunicode}
+\usepackage{titlesec}
+\usepackage{fontspec}
+\usepackage{fancyhdr}
+\usepackage{datetime2}
+\usepackage{wasysym,oz,pxfonts,txfonts}
+
+
+\usepackage{titleref}
+\usepackage{mdwlist}
+\usepackage{makecell}
+
+
+\usepackage[PunctStyle=plain,RubberPunctSkip=false]{xeCJK}
+\defaultCJKfontfeatures{Script=CJK}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+% =========================================
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=false,
+    pdftitle={Shell Beach (2022)},
+    pdfpagemode=FullScreen,
+}
+\usepackage{listings,paralist}
+\usepackage{enumerate,enumitem}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{tocloft}
+\renewcommand{\contentsname}{\sffamily{目录}\vspace{30pt}\hrule\vspace{2pt}}
+\renewcommand{\cftchapfont}{\vspace{0pt}\mdseries\rmfamily}
+\renewcommand{\cftchappagefont}{\vspace{0pt}\mdseries\rmfamily}
+
+\usepackage{graphicx}
+\graphicspath{ {/home/neruthes/DEV/shellbeach-book/img/} }
+
+\usepackage{etoolbox}
+\patchcmd{\quote}{\rightmargin}{\leftmargin 2em \rightmargin}{}{}
+
+\usepackage[bottom]{footmisc}
+\renewcommand*{\footnotelayout}{\footnotesize\rmfamily\fontspec{Noto Serif CJK SC}\CJKfontspec{Noto Serif CJK SC}}
+
+% \usepackage[sfdefault]{inter}
+\usepackage[OT1]{fontenc}
+% \renewcommand*\familydefault{\ttdefault}
+
+\setmainfont{Noto Serif CJK SC}
+\setromanfont{Noto Serif CJK SC}
+\setsansfont{Inter}
+\setmonofont{Lab Mono}
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKromanfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+
+
+\title{Shell Beach (2022)}
+\author{白色灯塔先生}
+\date{2022}
+% =========================================
+
+% =========================================
+% START CORPORATION CONFIG
+\setlength{\parindent}{0pt}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{8pt}
+\setlength{\baselineskip}{14pt}
+% END CORPORATION CONFIG
+% =========================================
+
+% =========================================
+% START COMMON STYLESHEET
+
+% END COMMON STYLESHEET
+% =========================================
+
+
+
+
+\pagestyle{fancy}
+\renewcommand{\headrule}{}
+\fancyhf{}
+\fancyhead[LE,RO]{\sffamily Shell Beach}
+\fancyhead[LO,RE]{\sffamily 白色灯塔先生}
+\fancyhead[C]{}
+\fancyfoot[LE,RO]{\itshape\small{\thepage}}
+\fancyfoot[LO,RE]{}
+\fancyfoot[C]{}
+
+
+
+\makeatletter\@addtoreset{chapter}{part}\makeatother%
+
+
+\newcommand{\pozhehao}[0]{%
+    {\fontspec{FandolSong}\CJKfontspec{FandolSong}——}%
+}
+\newcommand{\ardate}[2]{
+    {
+        {
+            \ttfamily\small#1
+        } \hfill {
+            \sffamily\footnotesize
+            \href{https://mp.weixin.qq.com/s/#2}{https://mp.weixin.qq.com/s/#2}%
+        }%
+        \vspace{8pt}
+        \hrule
+        \vspace{30pt}
+    }
+
+}
+\newcommand{\blockquote}[1]{
+    \begin{quote}
+        \raggedright
+        \normalsize
+        \rmfamily
+        #1
+    \end{quote}\par
+}
+\newcommand{\blockquotesource}[3]{
+    % $1=title $2=author $3=year
+    % \par{\small\sffamily#1\hspace{1em}#2}\par
+    \par{\small\sffamily
+        \hfill
+        #1
+        \hspace{0.5em}·\hspace{0.5em}
+        #2
+        \hspace{0.5em}·\hspace{0.5em}
+        #3
+    }\par
+}
+\newcommand{\citebook}[1]{
+    \par{\small\sffamily
+        \hfill
+        #1
+    }\par
+}
+
+\newcommand{\dialoguelist}[2]{
+    % $1=width $2=content
+    \begin{basedescript}{\desclabelstyle{\pushlabel}\desclabelwidth{#1}}
+        #2
+    \end{basedescript}
+}
+% \newcommand{\dialoguelist}[1]{
+%     % \begin{quote}
+%         \tabulinesep=3pt
+%         \tabcolsep=0pt
+%         \begin{longtabu}[b]{lX[l]l}
+%             #1
+%         \end{longtabu}
+%     % \end{quote}
+% }
+\newcommand{\dialogue}[2]{
+    \item[#1] {#2}
+}
+% \newcommand{\dialogue}[2]{
+%     {\raggedright\sffamily\CJKfontspec{FandolHei}\hspace{2em}#1\rmfamily：} &
+%     {
+%         % \raggedright
+%         #2} &
+%     {\hspace{1em}} \\
+% }
+\newcommand\ifootnote[1]{%
+    \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}%
+    \addtocounter{footnote}{-1}%
+    \endgroup
+}
+\newcommand{\makedraftdeclaration}[0]{
+    \clearpage
+    
+    \hspace{0.5\linewidth}
+    \vspace{0.4\textheight}
+    
+    {\hfill\sffamily{以下为尚未完工的草稿}\hfill}
+    
+    \vfill
+    
+    \clearpage
+}
+
+
+
+% \titleformat{\chapter}[display]{\huge\bfseries}{\raggedright\mdseries\normalsize\fontspec{SF Pro Text}Article \thechapter\linebreak}{0pt}{\LARGE\bfseries}
+\titleformat{\chapter}[display]{\small\mdseries\rmfamily\fontspec{Noto Serif CJK SC}}{\raggedright\mdseries\normalsize}{0pt}{\LARGE\bfseries}
+
+
+
+\begin{document}
+\raggedbottom
+\pagestyle{empty}
+% \layout
+
+
+
+
+\newgeometry{hmargin=50mm,tmargin=50mm,bmargin=50mm}
+\begin{titlepage}
+    \center
+
+	{
+        \sffamily
+        \includegraphics[width=80mm]{shellbeach-avatar.jpg}
+        \vspace{20pt}
+
+        \Huge
+        {\bfseries Shell Beach}
+
+        \normalsize
+        2022 年度公众号文章合集
+    }
+	\vspace{20pt}
+	\vfill
+
+	{\sffamily
+		白色灯塔先生}
+
+\end{titlepage}
+\newgeometry{textwidth=38em,tmargin=25mm,bmargin=27mm,bindingoffset=17mm}
+
+
+\rmfamily
+\normalsize
+
+
+
+
+
+% \chapter*{前言}
+
+% Hello world!
+
+\cleardoublepage
+
+\setcounter{tocdepth}{0}
+\textmd{\sffamily\tableofcontents}
+\cleardoublepage
+
+
+
+\pagestyle{myheadings}
+% \part{2022 Q1}
+% ======================================
+% BEGIN LIST
+\input{/home/neruthes/DEV/shellbeach-book/2022/articles-list.tex}
+% END LIST
+% ======================================
+
+
+
+
+\clearpage
+\pagestyle{empty}
+\hspace{1pt}
+\vfill
+{
+	\footnotesize
+	\raggedright
+	\sffamily
+	\fontspec{Inter}
+
+    
+	Shell Beach 微信公众号 \copyright{} 2022 版权所有
+    
+	构建日期：\today
+    
+	装帧设计：Neruthes
+}
+\end{document}
