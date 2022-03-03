@@ -36,7 +36,11 @@ done
 set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
 #####################################################################
 
+### Preprocessors
+### PP1: Pozhehao
+sed -i "s|——|\\\\pozhehao{}|g" articles/*.tex
 
+### Generate articles list
 ./getlist.sh > articles-list.tex
 
 

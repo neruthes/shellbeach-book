@@ -8,6 +8,5 @@ function printGroup() {
     done
     echo ""
 }
-
-echo "\\part{Season 1}"
+echo "\\mybookpart{第一季度}"
 printGroup $(ls $PWD/articles/{01,02,03}*.tex 2>/dev/null)

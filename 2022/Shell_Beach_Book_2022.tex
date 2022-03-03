@@ -35,10 +35,16 @@
 \usepackage{enumerate,enumitem}
 \usepackage{longtable}
 \usepackage{tabu}
+
 \usepackage{tocloft}
 \renewcommand{\contentsname}{\sffamily{目录}\vspace{30pt}\hrule\vspace{2pt}}
 \renewcommand{\cftchapfont}{\vspace{0pt}\mdseries\rmfamily}
 \renewcommand{\cftchappagefont}{\vspace{0pt}\mdseries\rmfamily}
+\setlength{\cftbeforechapskip}{0pt}
+\newcommand{\mybookpart}[1]{
+    \addcontentsline{toc}{chapter}{\linebreak\textbf{\Large#1}\vspace{7pt}}
+    \part*{#1}
+}
 
 \usepackage{graphicx}
 \graphicspath{ {/home/neruthes/DEV/shellbeach-book/img/} }
@@ -50,13 +56,18 @@
 \renewcommand*{\footnotelayout}{\footnotesize\rmfamily\fontspec{Noto Serif CJK SC}\CJKfontspec{Noto Serif CJK SC}}
 
 % \usepackage[sfdefault]{inter}
-\usepackage[OT1]{fontenc}
+\usepackage[OT1,T1]{fontenc}
 % \renewcommand*\familydefault{\ttdefault}
 
-\setmainfont{Domitian}
-\setromanfont{Domitian}
+% Bad roman fonts: Times New Roman, NewComputerModern, Noto Serif, Theano Modern, Spectral
+% Good roman fonts: Domitian, Palatino, QTPalatine
+\setmainfont{QTPalatine}
+\setromanfont{QTPalatine}
+% \usepackage{kpfonts}
+% \usepackage{TheanoModern}
+% \usepackage{txfonts}
 \setsansfont{Inter}
-\setmonofont{Lab Mono}
+\setmonofont{Libertinus Mono}
 \setCJKmainfont{Noto Serif CJK SC}
 \setCJKromanfont{Noto Serif CJK SC}
 \setCJKsansfont{Noto Sans CJK SC}
@@ -124,7 +135,9 @@
         {
             \ttfamily\small#1
         } \hfill {
-            \sffamily\footnotesize
+            \footnotesize
+            \sffamily
+            \fontspec{Noto Sans Mono Condensed}
             \href{https://mp.weixin.qq.com/s/#2}{https://mp.weixin.qq.com/s/#2}%
         }%
         \vspace{8pt}
@@ -135,7 +148,6 @@
 }
 \newcommand{\blockquote}[1]{
     \begin{quote}
-        \raggedright
         \normalsize
         \rmfamily
         #1
@@ -176,7 +188,7 @@
 %     % \end{quote}
 % }
 \newcommand{\dialogue}[2]{
-    \item[#1] {#2}
+    \item[\mdseries#1] {#2}
 }
 % \newcommand{\dialogue}[2]{
 %     {\raggedright\sffamily\CJKfontspec{FandolHei}\hspace{2em}#1\rmfamily：} &
@@ -185,6 +197,17 @@
 %         #2} &
 %     {\hspace{1em}} \\
 % }
+\newcommand{\dialoguesepline}[2]{
+    % $1=actorNameColWidth
+    \begin{minipage}{\linewidth}
+        \sffamily\footnotesize
+        \center\vspace{2pt}
+        {#2}\hspace{#1}
+    \end{minipage}
+}
+\newcommand{\threestars}[0]{
+    {*\hspace{1em}*\hspace{1em}*}
+}
 \newcommand\ifootnote[1]{%
     \begingroup
     \renewcommand\thefootnote{}\footnote{#1}%
@@ -211,11 +234,14 @@
 
 
 
+\linespread{1.18}
+
+
+
 \begin{document}
 \raggedbottom
 \pagestyle{empty}
-% \layout
-
+\rmfamily\mdseries\normalsize
 
 
 
