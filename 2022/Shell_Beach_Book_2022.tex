@@ -17,6 +17,8 @@
 \usepackage{titleref}
 \usepackage{mdwlist}
 \usepackage{makecell}
+\usepackage{qrcode}
+\usepackage{pbox}
 
 
 \usepackage[PunctStyle=plain,RubberPunctSkip=false]{xeCJK}
@@ -81,10 +83,9 @@
 
 % =========================================
 % START CORPORATION CONFIG
-\setlength{\parindent}{0pt}
+% \setlength{\parindent}{0pt}
 \setlength{\parindent}{2em}
 \setlength{\parskip}{8pt}
-\setlength{\baselineskip}{14pt}
 % END CORPORATION CONFIG
 % =========================================
 
@@ -131,7 +132,7 @@
     {\fontspec{FandolSong}\CJKfontspec{FandolSong}——}%
 }
 \newcommand{\ardate}[2]{
-    {
+    \par{
         {
             \ttfamily\small#1
         } \hfill {
@@ -150,20 +151,25 @@
     \begin{quote}
         \normalsize
         \rmfamily
+        % \fontspec{GFS Bodoni}
+        % \fontspec{FandolKai}
+        \fontspec{NewComputerModern}
+        \CJKfontspec{FandolKai}
+        % \itshape
         #1
-    \end{quote}\par
+    \end{quote}
 }
 \newcommand{\blockquotesource}[3]{
     % $1=title $2=author $3=year
     % \par{\small\sffamily#1\hspace{1em}#2}\par
-    \par{\small\sffamily
+    \par{\footnotesize\sffamily
         \hfill
         #1
         \hspace{0.5em}·\hspace{0.5em}
         #2
         \hspace{0.5em}·\hspace{0.5em}
-        #3
-    }\par
+        #3%
+    }%
 }
 \newcommand{\citebook}[1]{
     \par{\small\sffamily
@@ -172,37 +178,35 @@
     }\par
 }
 
+\newlength{\dialoguenamewidth}
 \newcommand{\dialoguelist}[2]{
-    % $1=width $2=content
-    \begin{basedescript}{\desclabelstyle{\pushlabel}\desclabelwidth{#1}}
+    % $1=namewidth $2=content
+    % \setlength{\dialoguenamewidth}{#1}
+    \begin{itemize}[nosep,align=parleft,leftmargin=*,labelsep=#1,labelwidth=#1]
         #2
-    \end{basedescript}
+    \end{itemize}
 }
-% \newcommand{\dialoguelist}[1]{
-%     % \begin{quote}
-%         \tabulinesep=3pt
-%         \tabcolsep=0pt
-%         \begin{longtabu}[b]{lX[l]l}
-%             #1
-%         \end{longtabu}
-%     % \end{quote}
-% }
+\newcommand{\dialoguelistthin}[2]{
+    % $1=namewidth $2=content
+    \blockquote{
+        \dialoguelist{#1}{#2}
+    }
+}
 \newcommand{\dialogue}[2]{
-    \item[\mdseries#1] {#2}
+    % We are having a unwanted linewrap here in the item label.
+    % Now we have to use ~ for whitespace and \nolinebreak between CJK characters.
+    % This package was recommended, but it was unavailable in texlive 2021. We will try this solution when texlive 2022 is ready.
+    % URL: https://mirrors.ircam.fr/pub/CTAN/macros/latex/contrib/tabularray/tabularray.pdf
+    \item[\mdseries\rmfamily\CJKfontspec{FandolKai}\itshape#1] {\rmfamily#2}
 }
-% \newcommand{\dialogue}[2]{
-%     {\raggedright\sffamily\CJKfontspec{FandolHei}\hspace{2em}#1\rmfamily：} &
-%     {
-%         % \raggedright
-%         #2} &
-%     {\hspace{1em}} \\
-% }
 \newcommand{\dialoguesepline}[2]{
     % $1=actorNameColWidth
-    \begin{minipage}{\linewidth}
+    \item[] \begin{minipage}{\linewidth}
         \sffamily\footnotesize
-        \center\vspace{2pt}
+        \center
+        \vspace{4pt}
         {#2}\hspace{#1}
+        \vspace{6pt}
     \end{minipage}
 }
 \newcommand{\threestars}[0]{
@@ -309,6 +313,10 @@
 	\raggedright
 	\sffamily
 	\fontspec{Inter}
+
+
+    \qrcode[link,height=30mm]{http://weixin.qq.com/r/sD8OChHEO9lHKVVpb2o0}
+    \vspace{10mm}
 
     
 	白色灯塔先生 \copyright{} 2022 版权所有

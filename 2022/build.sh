@@ -1,6 +1,7 @@
 #!/bin/bash
 
 REPODIR="$(realpath ..)"
+REALPATH="$REPODIR/_dist/Shell_Beach_Book_2022.pdf"
 XELATEXARGS=""
 #####################################################################
 ### Parse arguments. Magic; do not touch.
@@ -51,8 +52,6 @@ xelatex $XELATEXARGS \
     $REPODIR/2022/Shell_Beach_Book_2022.tex
 
 mv  $REPODIR/_dist/tex-tmp/*.pdf  $REPODIR/_dist/
-
-REALPATH=$REPODIR/_dist/Shell_Beach_Book_2022.pdf
 
 echo -e "\nDocument Size:"
 du -h "$REALPATH"
