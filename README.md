@@ -6,6 +6,6 @@
 
 ## Copyright
 
-Copyright (c) 2022 The "Shell Beach" Channel. All rights Reserved.
+Copyright (c) 2022 白色灯塔先生 (The "Shell Beach" Channel). All rights Reserved.
 
-The maintainer of this publication project is authorized to produce the PDF artifacts, but by no means authorized to republish these articles themselves.
+The maintainer of this publication project is authorized to produce the PDF artifacts, but by no means authorized to republish these articles themselves. You may read the source code (contained here) and read the PDF artifacts (linked here).
