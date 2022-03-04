@@ -1,7 +1,7 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[a4paper,twosided,11pt]{book}
+\documentclass[a4paper,twosided,10pt]{book}
 
 \usepackage[a4paper,hmargin=50mm,tmargin=70mm,bmargin=50mm]{geometry}
 \usepackage[dvipsnames]{xcolor}
@@ -227,11 +227,11 @@
 
 
 % \titleformat{\chapter}[display]{\huge\bfseries}{\raggedright\mdseries\normalsize\fontspec{SF Pro Text}Article \thechapter\linebreak}{0pt}{\LARGE\bfseries}
-\titleformat{\chapter}[display]{\small\mdseries\rmfamily\fontspec{Noto Serif CJK SC}}{\raggedright\mdseries\normalsize}{0pt}{\LARGE\bfseries}
+\titleformat{\chapter}[display]{\small\mdseries\rmfamily\fontspec{Noto Serif CJK SC}}{\raggedright\mdseries\normalsize}{0pt}{\Large\bfseries}
 
 
 
-\linespread{1.18}
+\linespread{1.16}
 
 
 
@@ -242,13 +242,14 @@
 
 
 
-\newgeometry{hmargin=50mm,tmargin=50mm,bmargin=50mm}
+\newgeometry{hmargin=50mm,tmargin=50mm,bmargin=50mm}% For A4 paper
+% \newgeometry{hmargin=20mm,tmargin=30mm,bmargin=30mm}% For A5 paper
 \begin{titlepage}
     \center
 
 	{
         \sffamily
-        \includegraphics[width=80mm]{shellbeach-avatar.jpg}
+        \includegraphics[width=60mm]{shellbeach-avatar.jpg}
         \vspace{20pt}
 
         \Huge
@@ -264,7 +265,8 @@
 		白色灯塔先生}
 
 \end{titlepage}
-\newgeometry{textwidth=38em,tmargin=25mm,bmargin=27mm,bindingoffset=17mm}
+\newgeometry{textwidth=42em,tmargin=25mm,bmargin=27mm,bindingoffset=17mm}% For A4 paper
+% \newgeometry{textwidth=32em,tmargin=20mm,bmargin=15mm,bindingoffset=13mm}% For A5 paper
 
 
 \rmfamily
