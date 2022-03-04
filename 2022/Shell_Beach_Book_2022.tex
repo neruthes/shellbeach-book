@@ -178,36 +178,24 @@
     }\par
 }
 
-\newlength{\dialoguenamewidth}
 \newcommand{\dialoguelist}[2]{
     % $1=namewidth $2=content
-    % \setlength{\dialoguenamewidth}{#1}
-    \begin{itemize}[nosep,align=parleft,leftmargin=*,labelsep=#1,labelwidth=#1]
-        #2
-    \end{itemize}
+    \begin{description}[widest=AA#1,leftmargin=*,font=\mdseries\rmfamily\CJKfontspec{FandolKai}\itshape]%
+        #2%
+    \end{description}%
 }
 \newcommand{\dialoguelistthin}[2]{
     % $1=namewidth $2=content
-    \blockquote{
-        \dialoguelist{#1}{#2}
-    }
+    \blockquote{%
+        \dialoguelist{#1}{#2}%
+    }%
 }
 \newcommand{\dialogue}[2]{
-    % We are having a unwanted linewrap here in the item label.
-    % Now we have to use ~ for whitespace and \nolinebreak between CJK characters.
-    % This package was recommended, but it was unavailable in texlive 2021. We will try this solution when texlive 2022 is ready.
-    % URL: https://mirrors.ircam.fr/pub/CTAN/macros/latex/contrib/tabularray/tabularray.pdf
-    \item[\mdseries\rmfamily\CJKfontspec{FandolKai}\itshape#1] {\rmfamily#2}
+    \item[#1] \textrm{#2}%
 }
 \newcommand{\dialoguesepline}[2]{
-    % $1=actorNameColWidth
-    \item[] \begin{minipage}{\linewidth}
-        \sffamily\footnotesize
-        \center
-        \vspace{4pt}
-        {#2}\hspace{#1}
-        \vspace{6pt}
-    \end{minipage}
+    % $1=actorNameColWidth $2=content
+    \item \textsf{\hfill\footnotesize #2\hfill{\color{white}AA#1}}
 }
 \newcommand{\threestars}[0]{
     {*\hspace{1em}*\hspace{1em}*}
