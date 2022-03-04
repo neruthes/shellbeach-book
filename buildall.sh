@@ -1,4 +1,13 @@
 #!/bin/bash
 
-cd 2022
-./build.sh $@
+REPODIR=$PWD
+
+YEARS="2022"
+for i in $YEARS; do
+    cd $i
+    ./build.sh $@
+done
+
+
+cd $REPODIR
+pushgithubdistweb

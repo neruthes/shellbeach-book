@@ -14,11 +14,9 @@
 \usepackage{wasysym,oz,pxfonts,txfonts}
 
 
-\usepackage{titleref}
-\usepackage{mdwlist}
-\usepackage{makecell}
+\usepackage{tcolorbox}
 \usepackage{qrcode}
-\usepackage{pbox}
+\usepackage{indentfirst}
 
 
 \usepackage[PunctStyle=plain,RubberPunctSkip=false]{xeCJK}
@@ -127,25 +125,27 @@
 
 \makeatletter\@addtoreset{chapter}{part}\makeatother%
 
-
+\newcommand{\midnote}[1]{
+    \noindent{\sffamily\footnotesize\hfill#1\hfill}
+}
 \newcommand{\pozhehao}[0]{%
     {\fontspec{FandolSong}\CJKfontspec{FandolSong}——}%
 }
 \newcommand{\ardate}[2]{
-    \par{
-        {
-            \ttfamily\small#1
-        } \hfill {
+    \noindent\begin{minipage}{\textwidth}
+        \noindent{%
+            \ttfamily\small#1%
+        } \hfill {%
             \footnotesize
             \sffamily
             \fontspec{Noto Sans Mono Condensed}
             \href{https://mp.weixin.qq.com/s/#2}{https://mp.weixin.qq.com/s/#2}%
         }%
-        \vspace{8pt}
-        \hrule
-        \vspace{30pt}
-    }
+    \end{minipage}
 
+    \vspace{8pt}
+    \hrule
+    \vspace{30pt}
 }
 \newcommand{\blockquote}[1]{
     \begin{quote}
@@ -176,10 +176,9 @@
         #1
     }\par
 }
-
 \newcommand{\dialoguelist}[2]{
     % $1=namewidth $2=content
-    \begin{description}[widest=AA#1,leftmargin=*,font=\mdseries\rmfamily\CJKfontspec{FandolKai}\itshape]%
+    \begin{description}[widest=A#1,leftmargin=*,font=\mdseries\rmfamily\CJKfontspec{FandolKai}\itshape]%
         #2%
     \end{description}%
 }
@@ -198,6 +197,13 @@
 }
 \newcommand{\threestars}[0]{
     {*\hspace{1em}*\hspace{1em}*}
+}
+\newcommand{\tristarsepline}[0]{
+    \begin{minipage}{\textwidth}
+        \center
+        \parindent=0pt
+        \threestars
+    \end{minipage}
 }
 \newcommand\ifootnote[1]{%
     \begingroup
@@ -306,10 +312,11 @@
     \vspace{10mm}
 
     
-	白色灯塔先生 \copyright{} 2022 版权所有
-    
-	构建日期：\today
-    
-	装帧设计：Neruthes
+    白色灯塔先生 \copyright{} 2022 版权所有
+
+    \begin{description}[widest=,leftmargin=*,font=\mdseries\sffamily]%
+        \item[构建日期] \today
+        \item[装帧设计] Neruthes
+    \end{description}
 }
 \end{document}
