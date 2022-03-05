@@ -32,6 +32,8 @@
     pdfpagemode=FullScreen,
 }
 \usepackage{listings,paralist}
+\setdefaultleftmargin{3em}{2em}{1em}{1em}{1em}{1em}
+
 \usepackage{enumerate,enumitem}
 \usepackage{longtable}
 \usepackage{tabu}
@@ -125,6 +127,14 @@
 
 \makeatletter\@addtoreset{chapter}{part}\makeatother%
 
+\newcommand{\useimg}[1]{
+    \noindent\begin{minipage}{\linewidth}
+        \centering
+        \vspace{3pt}
+        \includegraphics[width=\textwidth-8em,keepaspectratio,height=0.5\textheight]{#1}
+        \vspace{3pt}
+    \end{minipage}
+}
 \newcommand{\midnote}[1]{
     \noindent{\sffamily\footnotesize\hfill#1\hfill}
 }
@@ -199,9 +209,9 @@
     {*\hspace{1em}*\hspace{1em}*}
 }
 \newcommand{\tristarsepline}[0]{
-    \begin{minipage}{\textwidth}
+    \noindent\begin{minipage}{\textwidth}
         \center
-        \parindent=0pt
+        \noindent
         \threestars
     \end{minipage}
 }
@@ -256,7 +266,7 @@
         {\bfseries Shell Beach}
 
         \normalsize
-        2022 年度公众号文章合集
+        二零二二年度公众号文章合集
     }
 	\vspace{20pt}
 	\vfill
