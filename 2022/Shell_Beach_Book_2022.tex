@@ -201,9 +201,15 @@
 \newcommand{\dialogue}[2]{
     \item[#1] \textrm{#2}%
 }
+\newlength{\dialogueseplinenamewidth}
 \newcommand{\dialoguesepline}[2]{
-    % $1=actorNameColWidth $2=content
-    \item \textsf{\hfill\footnotesize #2\hfill{\color{white}AA#1}}
+    % $1=actorNameColWidthExample $2=content
+    % \item \textsf{\hfill\footnotesize #2\hfill{\color{white}AA#1}}
+    \settowidth{\dialogueseplinenamewidth}{#1}
+    \item \begin{minipage}{\linewidth-\dialogueseplinenamewidth}
+        \sffamily\centering\footnotesize
+        #2
+    \end{minipage}
 }
 \newcommand{\threestars}[0]{
     {*\hspace{1em}*\hspace{1em}*}
@@ -257,18 +263,19 @@
 \begin{titlepage}
     \center
 
-	{
-        \sffamily
-        \includegraphics[width=60mm]{shellbeach-avatar.jpg}
-        \vspace{20pt}
+    \parindent=0pt
+    \sffamily
+    \includegraphics[width=60mm]{shellbeach-avatar.jpg}
+    \vspace{20pt}
 
-        \Huge
-        {\bfseries Shell Beach}
+    \Huge
+    {\bfseries Shell Beach}
 
-        \normalsize
-        二零二二年度公众号文章合集
-    }
-	\vspace{20pt}
+    \normalsize
+    二零二二年度公众号文章合集
+
+    （持续更新中）
+
 	\vfill
 
 	{\sffamily
@@ -309,7 +316,7 @@
 
 
 
-\clearpage
+\cleardoublepage
 \pagestyle{empty}
 \hspace{1pt}
 \vfill
