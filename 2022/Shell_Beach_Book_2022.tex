@@ -3,7 +3,7 @@
 
 \documentclass[a4paper,twosided,10pt]{book}
 
-\usepackage[a4paper,hmargin=50mm,tmargin=70mm,bmargin=50mm]{geometry}
+\usepackage[a4paper,textwidth=42em,tmargin=25mm,bmargin=27mm,bindingoffset=17mm]{geometry}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{calc}
 \usepackage{amsmath,xltxtra,xunicode}
@@ -100,13 +100,13 @@
 
 \pagestyle{fancy}
 \renewcommand{\headrule}{}
-\fancyhf{}
-\fancyhead[LE,RO]{\sffamily Shell Beach}
-\fancyhead[LO,RE]{\sffamily 白色灯塔先生}
-\fancyhead[C]{}
-\fancyfoot[LE,RO]{\itshape\small{\thepage}}
-\fancyfoot[LO,RE]{}
-\fancyfoot[C]{}
+% \fancyhf{}
+% \fancyhead[LE,RO]{\sffamily Shell Beach}
+% \fancyhead[LO,RE]{\sffamily \thechapter}
+% \fancyhead[C]{}
+% \fancyfoot[LE,RO]{\itshape\small{\thepage}}
+% \fancyfoot[LO,RE]{}
+% \fancyfoot[C]{}
 
 
 \fancypagestyle{plain}{
@@ -119,6 +119,16 @@
     \rfoot{}
     \cfoot{}
     \lfoot{}
+}
+\fancypagestyle{fancy}{
+    \fancyhf{}
+    \renewcommand{\headrule}{}
+    \fancyhead[LE,RO]{\small\sffamily Shell Beach}
+    \fancyhead[LO,RE]{\small\sffamily \#2022-\leftpad{\thechapter}}
+    \fancyhead[C]{}
+    \fancyfoot[LE,RO]{\small{\thepage}}
+    \fancyfoot[LO,RE]{}
+    \fancyfoot[C]{}
 }
 
 
@@ -140,6 +150,9 @@
 }
 \newcommand{\pozhehao}[0]{%
     {\fontspec{FandolSong}\CJKfontspec{FandolSong}——}%
+}
+\newcommand{\twochartab}[0]{%
+    {\hspace{2em}}%
 }
 \newcommand{\ardate}[2]{
     \noindent\begin{minipage}{\textwidth}
@@ -239,11 +252,12 @@
     
     \clearpage
 }
-
+\newcommand{\leftpad}[1]{\ifnum#1<100 0\ifnum#1<10 0\fi\fi#1}
+% \newcommand{\leftpad}[1]{\ifnum\thechapter<100 0\ifnum\thechapter<10 0\fi\fi\thechapter}
 
 
 % \titleformat{\chapter}[display]{\huge\bfseries}{\raggedright\mdseries\normalsize\fontspec{SF Pro Text}Article \thechapter\linebreak}{0pt}{\LARGE\bfseries}
-\titleformat{\chapter}[display]{\small\mdseries\rmfamily\fontspec{Noto Serif CJK SC}}{\raggedright\mdseries\normalsize}{0pt}{\Large\bfseries}
+\titleformat{\chapter}[display]{\small\mdseries\rmfamily\fontspec{Noto Serif CJK SC}}{\raggedright\mdseries\large\ttfamily \#2022-\leftpad{\thechapter}\vspace{10pt}}{0pt}{\Large\bfseries}
 
 
 
@@ -269,7 +283,8 @@
     \vspace{20pt}
 
     \Huge
-    {\bfseries Shell Beach}
+    {\fontspec{Noto Serif Display}\bfseries{Shell Beach}}
+
     \vspace{20pt}
 
     \normalsize
@@ -302,10 +317,12 @@
 \setcounter{tocdepth}{0}
 \textmd{\sffamily\tableofcontents}
 \cleardoublepage
+\setcounter{page}{1}
 
 
-
-\pagestyle{myheadings}
+% \pagestyle{myheadings}
+% \pagestyle{plain}
+\pagestyle{fancy}
 % \part{2022 Q1}
 % ======================================
 % BEGIN LIST
