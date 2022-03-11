@@ -63,13 +63,15 @@
 
 % Bad roman fonts: Times New Roman, NewComputerModern, Noto Serif, Theano Modern, Spectral
 % Good roman fonts: Domitian, Palatino, QTPalatine
-\setmainfont{QTPalatine}
-\setromanfont{QTPalatine}
+
 % \usepackage{kpfonts}
 % \usepackage{TheanoModern}
 % \usepackage{txfonts}
+
+\setmainfont{QTPalatine}
+\setromanfont{QTPalatine}
 \setsansfont{Inter}
-\setmonofont{Libertinus Mono}
+\setmonofont{Noto Sans Mono Condensed}
 \setCJKmainfont{Noto Serif CJK SC}
 \setCJKromanfont{Noto Serif CJK SC}
 \setCJKsansfont{Noto Sans CJK SC}
@@ -278,22 +280,45 @@
     \center
 
     \parindent=0pt
-    \sffamily
+    % \sffamily
     \includegraphics[width=60mm]{shellbeach-avatar.jpg}
     \vspace{20pt}
 
     \Huge
-    {\fontspec{Noto Serif Display}\bfseries{Shell Beach}}
+    \fontspec{Noto Serif Display}
+    {\bfseries{Shell Beach}}
 
     \vspace{20pt}
 
     \normalsize
-    二零二二年度公众号文章合集\\
-    持续更新中
+    % 二零二二年度公众号文章合集\\
+    % 持续更新中
+
+    % \fontspec{Playfair Display}
+    % \fontspec{Libre Bodoni}\scshape
+    \fontspec{Playfair Display}\scshape
+    % \fontspec{Calluna}\scshape
+    % \fontspec{Tinos}\scshape
+    % \fontspec{Theano Didot}\scshape
+    \Large
+    Channel Article\\
+    Annual Collection\\
+    % 2022
+    
+    % \Huge{\bfseries{}2022}
+
+    \vspace{20pt}
+    \Huge
+    \fontspec{Noto Serif Display}
+    {\bfseries{2022}}
+    
+    % \fontspec{Noto Serif Display}
+    % \LARGE{2022}
 
 	\vfill
 
 	\sffamily
+    \normalsize
     白色灯塔先生
 
 \end{titlepage}

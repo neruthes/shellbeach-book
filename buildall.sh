@@ -17,4 +17,4 @@ for YEAR in $YEARS; do
 done
 
 
-# pushgithubdistweb
+pushgithubdistweb
