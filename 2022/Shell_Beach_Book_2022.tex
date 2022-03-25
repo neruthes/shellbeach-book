@@ -156,7 +156,11 @@
     \end{minipage}
 }
 \newcommand{\midnote}[1]{
-    \noindent{\sffamily\footnotesize\hfill#1\hfill}
+    % \noindent{\sffamily\footnotesize\hfill#1\hfill}
+    \noindent\begin{minipage}{\linewidth}
+        \center\sffamily\footnotesize
+        #1
+    \end{minipage}
 }
 \newcommand{\pozhehao}[0]{%
     {\fontspec{FandolSong}\CJKfontspec{FandolSong}——}%
