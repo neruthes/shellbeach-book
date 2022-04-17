@@ -9,7 +9,6 @@
 sed -i "s|——|\\\\pozhehao{}|g" articles/*.tex
 
 ### Generate articles list
-# ./getlist.sh > articles-list.tex
 function _printGroup() {
     echo ""
     for FN in $@; do
