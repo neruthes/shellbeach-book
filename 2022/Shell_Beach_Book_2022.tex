@@ -24,6 +24,8 @@
 \XeTeXlinebreaklocale "zh"
 \XeTeXlinebreakskip = 0pt plus 1pt
 
+\usepackage{xeCJKfntef}
+
 % =========================================
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
@@ -188,10 +190,9 @@
     \begin{quote}
         \normalsize
         \rmfamily
-        % \fontspec{GFS Bodoni}
-        % \fontspec{FandolKai}
         \fontspec{NewComputerModern}
-        \CJKfontspec{FandolKai}
+        % \CJKfontspec{FandolKai}
+        \CJKfontspec[AutoFakeBold]{FandolKai}
         % \itshape
         #1
     \end{quote}
