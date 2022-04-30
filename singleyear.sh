@@ -13,3 +13,5 @@ function _buildYear() {
 
 _buildYear $YEAR
 ntex "$YEAR/Shell_Beach_Book_$YEAR.tex" $@
+
+### Note: The 'ntex' script is available at <https://github.com/neruthes/NDevShellRC/blob/master/bin/ntex>
