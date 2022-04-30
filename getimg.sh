@@ -14,6 +14,10 @@ pwd
 DEST=$PWD/img/aimg/2022-$DATEMARK.jpg
 echo "DEST=$DEST"
 
+if [[ -e "$DEST" ]]; then
+    echo "[ERROR] Destination '$DEST' already exists."
+    exit 1
+fi
 
 curl "$URL" -o $DEST
 
