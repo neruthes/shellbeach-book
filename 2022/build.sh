@@ -21,7 +21,11 @@ function _getlist() {
     echo "\\mybookpart{第一季度}"
     _printGroup $(ls $PWD/articles/{01,02,03}*.tex 2>/dev/null)
     echo "\\mybookpart{第二季度}"
-    _printGroup $(ls $PWD/articles/04*.tex 2>/dev/null)
+    _printGroup $(ls $PWD/articles/{04,05,06}*.tex 2>/dev/null)
+    # echo "\\mybookpart{第三季度}"
+    _printGroup $(ls $PWD/articles/{07,08,09}*.tex 2>/dev/null)
+    # echo "\\mybookpart{第四季度}"
+    _printGroup $(ls $PWD/articles/{10,11,12}*.tex 2>/dev/null)
 }
 _getlist > articles-list.tex
 
