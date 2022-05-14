@@ -186,14 +186,15 @@
     \hrule
     \vspace{30pt}
 }
+\newcommand{\quotefont}[0]{
+    \rmfamily
+    \fontspec[Ligatures=TeX]{NewComputerModern}
+    \CJKfontspec[AutoFakeBold]{FandolKai}
+}
 \newcommand{\blockquote}[1]{
     \begin{quote}
         \normalsize
-        \rmfamily
-        \fontspec{NewComputerModern}
-        % \CJKfontspec{FandolKai}
-        \CJKfontspec[AutoFakeBold]{FandolKai}
-        % \itshape
+        \quotefont
         #1
     \end{quote}
 }
