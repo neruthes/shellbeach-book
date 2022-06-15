@@ -189,7 +189,7 @@
 \newcommand{\quotefont}[0]{
     \rmfamily
     \fontspec[Ligatures=TeX]{NewComputerModern}
-    \CJKfontspec[AutoFakeBold]{FandolKai}
+    \CJKfontspec[AutoFakeBold={2.60}]{FandolKai}
 }
 \newcommand{\blockquote}[1]{
     \begin{quote}
@@ -269,9 +269,6 @@
     \clearpage
 }
 \newcommand{\leftpad}[1]{\ifnum#1<100 0\ifnum#1<10 0\fi\fi#1}
-% \newcommand{\leftpad}[1]{\ifnum\thechapter<100 0\ifnum\thechapter<10 0\fi\fi\thechapter}
-
-
 \titleformat{\chapter}[display]{\small\mdseries\rmfamily\fontspec{Noto Serif CJK SC}}{\raggedright\mdseries\large\ttfamily \#2022-\leftpad{\thechapter}\vspace{10pt}}{0pt}{\Large\bfseries}
 
 
